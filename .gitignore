@@ -1,0 +1,53 @@
+# ---------------------------------------------------------------------------
+# Segredos e configuração local — NUNCA comitar.
+# Só os arquivos *.example (com valores fictícios) entram no repositório.
+# ---------------------------------------------------------------------------
+.env
+.env.*
+*.env
+!.env.example
+!*.env.example
+!**/*.env.example
+# Gerado pelo deploy/install.sh com a chave e o segredo reais do LiveKit.
+livekit.runtime.yaml
+# Certificados e chaves.
+*.pem
+*.key
+*.crt
+*.p12
+
+# Dados de runtime (usuários com hash de senha, servidores, canais).
+/data/
+*.json.tmp
+
+# Dependências
+node_modules/
+
+# Build
+dist/
+*.tsbuildinfo
+
+# Testes
+coverage/
+
+# Logs
+*.log
+npm-debug.log*
+logs/
+
+# Backups gerados pelos scripts de deploy
+Caddyfile.before-*
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+
+# Configuração local de ferramentas de IA
+.claude/settings.local.json

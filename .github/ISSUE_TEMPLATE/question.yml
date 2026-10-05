@@ -1,0 +1,23 @@
+name: "❓ Dúvida"
+description: "Não entendeu algo do código, de como rodar ou de como contribuir"
+title: "[Dúvida]: "
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Pergunta não é incômodo, é parte do processo. 😊
+        Antes, dê uma olhada no `README.md` (seção "Problemas comuns") e no `CONTRIBUTING.md`.
+  - type: textarea
+    id: question
+    attributes:
+      label: Qual é a sua dúvida?
+    validations:
+      required: true
+  - type: textarea
+    id: tried
+    attributes:
+      label: O que você já tentou?
+      description: Comandos que rodou, partes do código que leu, mensagens de erro.
+    validations:
+      required: false

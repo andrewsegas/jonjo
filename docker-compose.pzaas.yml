@@ -1,0 +1,23 @@
+services:
+  app:
+    container_name: sala-app
+    build:
+      context: .
+      args:
+        VITE_BASE_PATH: /
+        # Lido do .env da VPS. Vazio = widget de apoio oculto.
+        VITE_PIX_KEY: ${VITE_PIX_KEY:-}
+    networks:
+      - pzaas
+
+  livekit:
+    container_name: sala-livekit
+    volumes:
+      - ./livekit.runtime.yaml:/etc/livekit.yaml:ro
+    networks:
+      - pzaas
+
+networks:
+  pzaas:
+    external: true
+    name: n8n_default

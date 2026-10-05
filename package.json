@@ -1,0 +1,38 @@
+{
+  "name": "jonjo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"vite --configLoader runner\" \"node --env-file-if-exists=.env --watch server/index.mjs\"",
+    "build": "tsc -p tsconfig.app.json && vite build --configLoader runner",
+    "start": "node --env-file-if-exists=.env server/index.mjs",
+    "check": "tsc -p tsconfig.app.json",
+    "test": "node --test",
+    "livekit:up": "docker compose -f docker-compose.yml -f docker-compose.dev.yml up livekit -d",
+    "livekit:down": "docker compose -f docker-compose.yml -f docker-compose.dev.yml down",
+    "livekit:logs": "docker compose -f docker-compose.yml -f docker-compose.dev.yml logs -f livekit"
+  },
+  "dependencies": {
+    "@livekit/components-react": "^2.9.17",
+    "express": "^5.1.0",
+    "livekit-client": "^2.15.6",
+    "livekit-server-sdk": "^2.13.3",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.3.0",
+    "@types/react": "^19.1.12",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.2",
+    "concurrently": "^9.2.1",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.4"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}

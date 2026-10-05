@@ -1,0 +1,15 @@
+# Jonjo — bloco de site próprio, no mesmo Caddy do n8n.
+# Fica no topo do Caddyfile, como um bloco separado (não dentro do pzaas.online).
+# O Caddy provisiona o certificado TLS de jonjo.live automaticamente assim que
+# o DNS apontar para esta VPS e as portas 80/443 estiverem acessíveis.
+jonjo.live {
+	# O SDK do LiveKit conecta em /rtc/v1; encaminhe /rtc* ao LiveKit.
+	handle /rtc* {
+		reverse_proxy sala-livekit:7880
+	}
+
+	# Todo o restante vai para a aplicação.
+	handle {
+		reverse_proxy sala-app:3000
+	}
+}

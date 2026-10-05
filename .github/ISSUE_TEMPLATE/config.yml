@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🔒 Reportar vulnerabilidade de segurança
+    url: https://github.com/andrewsegas/jonjo/security/advisories/new
+    about: NÃO abra issue pública para falhas de segurança. Reporte em privado por aqui.
+  - name: 📖 Como abrir uma boa issue
+    url: https://github.com/andrewsegas/jonjo/blob/main/docs/COMO-ABRIR-ISSUE.md
+    about: Primeira vez? Veja o passo a passo e exemplos.
+  - name: 🤝 Guia de contribuição
+    url: https://github.com/andrewsegas/jonjo/blob/main/CONTRIBUTING.md
+    about: Como fazer fork, branch, commits e Pull Request.

@@ -1,0 +1,13 @@
+# Modelo de configuração do LiveKit para PRODUÇÃO (deploy com Nginx próprio).
+# Troque a chave e o segredo abaixo por valores gerados (openssl rand -hex 32)
+# e use os MESMOS valores em LIVEKIT_API_KEY/LIVEKIT_API_SECRET do .env.
+# Não comite os valores reais. Para desenvolvimento local, use livekit.dev.yaml.
+port: 7880
+rtc:
+  tcp_port: 7881
+  udp_port: 7882
+  use_external_ip: true
+logging:
+  level: info
+keys:
+  devkey: change-this-secret-before-deploying

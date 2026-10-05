@@ -1,0 +1,10 @@
+# Override para desenvolvimento local. Sobe só o LiveKit, anunciando 127.0.0.1
+# para que o navegador da sua máquina alcance as portas de mídia mapeadas.
+#
+#   docker compose -f docker-compose.yml -f docker-compose.dev.yml up livekit -d
+#   (ou simplesmente: npm run livekit:up)
+services:
+  livekit:
+    command: --config /etc/livekit.yaml --node-ip 127.0.0.1
+    volumes:
+      - ./livekit.dev.yaml:/etc/livekit.yaml:ro

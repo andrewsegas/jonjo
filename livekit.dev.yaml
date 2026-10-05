@@ -1,0 +1,14 @@
+# Configuração do LiveKit para DESENVOLVIMENTO LOCAL.
+# Usada por docker-compose.dev.yml. A chave/segredo abaixo são públicos e
+# servem só para a sua máquina — nunca use em produção.
+port: 7880
+rtc:
+  tcp_port: 7881
+  udp_port: 7882
+  # Localmente não queremos descobrir o IP público; o --node-ip 127.0.0.1
+  # (em docker-compose.dev.yml) faz o LiveKit anunciar o localhost.
+  use_external_ip: false
+logging:
+  level: info
+keys:
+  devkey: dev-secret-local-only-not-for-production

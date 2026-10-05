@@ -1,0 +1,56 @@
+name: CI
+
+# Verificação obrigatória: typecheck + testes + build + auditoria de dependências.
+# Roda em todo push na main e em todo pull request.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# Permissões mínimas: o CI só lê o código.
+permissions:
+  contents: read
+
+# Cancela execuções antigas do mesmo PR/branch para economizar minutos.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Typecheck, testes e build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run check
+
+      - name: Testes unitários
+        run: npm test
+
+      - name: Build
+        run: npm run build
+
+      - name: Auditoria de dependências (produção)
+        run: npm audit --omit=dev --audit-level=high
+
+  docker:
+    name: Build da imagem Docker
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build
+        run: docker build -t jonjo:ci .

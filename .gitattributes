@@ -1,0 +1,18 @@
+# Normaliza fim de linha para LF no repositório (evita ruído entre Windows/macOS/Linux).
+* text=auto eol=lf
+
+# Scripts de shell PRECISAM de LF, senão quebram na VPS ("/bin/sh^M: bad interpreter").
+*.sh text eol=lf
+
+# Binários — nunca normalizar.
+*.ogg binary
+*.mp3 binary
+*.wav binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.webp binary
+*.woff binary
+*.woff2 binary

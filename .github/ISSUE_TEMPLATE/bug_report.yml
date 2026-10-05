@@ -1,0 +1,90 @@
+name: "🐛 Reportar bug"
+description: "Algo não está funcionando como deveria"
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por ajudar a melhorar o **Jonjo**! Quanto mais detalhes, mais rápido a gente resolve. 🙏
+
+        - 🔒 **Falha de segurança?** NÃO abra issue pública — veja o `SECURITY.md`.
+        - 🧹 **Nunca cole** conteúdo do `.env`, tokens, cookies ou dados de outras pessoas.
+        - 📖 Dúvida sobre como escrever? Veja `docs/COMO-ABRIR-ISSUE.md`.
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Antes de abrir
+      options:
+        - label: Procurei nas issues (abertas e fechadas) e não encontrei uma igual.
+          required: true
+        - label: Consigo reproduzir na versão mais recente da `main`.
+          required: false
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: O que aconteceu?
+      description: Descreva o problema com clareza.
+      placeholder: Ao trocar de microfone durante a chamada, os outros param de me ouvir...
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Passos para reproduzir
+      description: Lista numerada, a partir de um estado limpo.
+      placeholder: |
+        1. Rodei `npm run livekit:up` e `npm run dev`
+        2. Entrei no canal Geral em duas janelas
+        3. Na janela 1, troquei o microfone
+        4. A janela 2 parou de receber áudio
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: O que você esperava que acontecesse?
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Área afetada
+      options:
+        - Login / cadastro
+        - Servidores / canais
+        - Voz / microfone
+        - Compartilhamento de tela
+        - Painel do presidente (cargos)
+        - Interface / layout
+        - Setup local / Docker
+        - Deploy
+        - Outra
+    validations:
+      required: true
+  - type: dropdown
+    id: where
+    attributes:
+      label: Onde aconteceu?
+      options:
+        - Ambiente local
+        - Instância pública
+        - Deploy próprio
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Ambiente
+      description: Navegador e versão, sistema operacional, versão do Node.
+      placeholder: Chrome 140, Windows 11, Node 22.12
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs ou prints (opcional)
+      description: Console do navegador (F12), terminal do `npm run dev` ou `npm run livekit:logs`. Revise antes de colar para não vazar segredos.
+      render: shell
+    validations:
+      required: false

@@ -1,0 +1,38 @@
+name: "💡 Sugerir funcionalidade"
+description: "Uma ideia ou melhoria para o Jonjo"
+title: "[Ideia]: "
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Toda ideia é bem-vinda! Antes de abrir, procure nas issues se já não foi sugerida.
+        Comece pelo **problema**: a solução a gente discute junto.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Qual problema isso resolve?
+      description: Descreva a necessidade ou o incômodo por trás da ideia.
+      placeholder: Em canais com muita gente, fica difícil saber quem está falando...
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Solução que você imagina
+      description: Como isso funcionaria, na sua visão? Esboços de tela ajudam.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternativas consideradas (opcional)
+    validations:
+      required: false
+  - type: checkboxes
+    id: contribute
+    attributes:
+      label: Contribuição
+      options:
+        - label: Quero implementar isso (um mantenedor vai confirmar antes de eu começar).
+          required: false
