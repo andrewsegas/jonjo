@@ -16,7 +16,7 @@
   "dependencies": {
     "@livekit/components-react": "^2.9.17",
     "express": "^5.1.0",
-    "livekit-client": "^2.15.6",
+    "livekit-client": "^2.22.4",
     "livekit-server-sdk": "^2.13.3",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
